@@ -1,0 +1,70 @@
+Documentation of Q3 ( Explanations are written with the abbreviation "Exp:" )
+
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 50	
+
+
+Exp: Libraries are called and a MAX is defined that is the maximum inputs the array can take.
+
+
+
+
+										
+int main()
+{
+	int ar[MAX],num,i,j,m,t,n,next;								/* Variable declaration*/
+	printf("How many numbers do u want to sort?");
+	scanf("%d",&num);
+	for(i=0; i< num; i++)
+	{
+		printf("Enter the %d  number\n",i+1);				
+		scanf("%d",&ar[i]);
+	}
+	for(i=0; i<num-1;i++)						/* Nested loop to compare the ith element of the list to all others (from i+1)     */
+	{
+		m= i;
+		for(j=i+1;j<num;j++)
+		{
+			if(ar[m] > ar[j])
+				m=j;				
+		}
+		if(m!=i)
+		{
+			next= ar[i];
+			ar[i]= ar[m];
+			ar[m]= next;
+		}
+		printf("The %d intermediate list is: ",i+1);		/* prints the intermediate sorted lists*/
+		for(t=0;t<num;t++)
+		{
+			printf("%d",ar[t]);
+		}
+		printf("\n");
+	}
+	printf("The sorted list is :");
+	for(i=0;i<num;i++)
+	{
+		printf("%d",ar[i]);
+	}
+	printf("\n");
+	
+}
+
+
+
+Exp: Variables are declared and the number of elements required to be sorted is taken up from the user and simultaneously inserted into the array.
+First a min ("m") is declared that is set to the first location. Then the minimum is searched int the array using the for loop
+and if any minimum is found it is swapped with the first location. Again the second element is assigned as minimum and same process is repeated
+till we get the final sorted list. Every intermediate list is also printed. It takes exaclt "n-1" intermediate lists to print the final
+sorted list.
+
+
+The selection sort works in a way such that the minimum element is found from the array and placed on the first position. Then it finds the minimum element in the
+remaining array and places in the second position and goes on that way till it reaches to the end of the array. As the input size gradually decreases by 1 the worst case time complexity 
+Will be O(n^2).
+
+
+
+
+

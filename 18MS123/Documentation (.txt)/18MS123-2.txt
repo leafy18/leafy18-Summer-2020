@@ -1,0 +1,73 @@
+Documentation of Q2 ( Explanations are written with the abbreviation "Exp:" )
+
+#include <stdio.h>
+#include<math.h>
+
+
+
+
+Exp: C libraries are called.
+
+
+
+
+float sum(float* ar, int n)					// array is taken as a pointer 
+{
+    if(n <= 0)
+        return ar[0];
+    else
+    	return ar[n] + sum(ar, n -1);			// recursion is implemented on sum  function 
+
+}
+
+
+
+Exp: The function sum is used to find the Arithmetic Mean of the numbers in the array (since the array is predefined). If
+"n" is equal to zero (which means the size of the array is zero), the function will return element of the array located at the 0th index.
+else it undergo recursion to find the sum of all the elements in the array provided in the code
+
+
+
+
+
+float product(float* ar, int n)
+{
+    if(n <= 0)
+        return ar[0];
+    else
+    	return ar[n] * product(ar, n-1);		// recursion is implemented on product fucntion
+}
+
+
+
+Exp: The function product is used to find the Geometric Mean of the numbers in the array (since the array is predefined). If
+"n" is equal to zero (which means the size of the array is zero), the function will return element of the array located at the 0th index.
+else it undergo recursion to find the product of all the elements in the array provided in the code.
+
+
+
+
+
+
+int main() 
+{
+   int n,i;
+   float ar[]={1,2,3,4,5,6,7,8,9,10};			// array is pre defined
+   /*printf("Enter the size of array: ");
+   scanf("%d",&n);
+   printf("Enter the elements:\n");
+   for(i=0;i<n;i++)
+   {
+   		scanf("%f",&ar[i]);
+   }*/
+   n= sizeof(ar)/sizeof(ar[0]);
+   //printf("%d",n);
+   printf("Arithmetic mean of the numbers is %f\n", sum(ar,n-1)/n);
+   printf("Geometric mean of the numbers is  %f\n",pow(product(ar,n-1),(1.0/n)));
+   
+}
+
+
+
+Exp: The main function has the array declared of which AM and GM is found. "n" is the sizeof the array.
+
